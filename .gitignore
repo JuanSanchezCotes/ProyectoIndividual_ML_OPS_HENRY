@@ -1,0 +1,11 @@
+.venv/
+myenv/
+/datasets/user_reviews.json.gz
+/datasets/users_item_proc.csv
+/datasets/users_items.csv
+/datasets/users_items.json
+/datasets/users_reviews.json
+/datasets/users_items.json.gz
+/datasets/Diccionario de Datos STEAM.xlsx
+/datasets/users_items.json.gz
+/datasets/steam_games_respaldo.csv
