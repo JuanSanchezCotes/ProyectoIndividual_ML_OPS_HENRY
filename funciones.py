@@ -1,6 +1,5 @@
 import pandas as pd
 import pickle
-from surprise import SVD
 from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import StandardScaler
 import numpy as np
