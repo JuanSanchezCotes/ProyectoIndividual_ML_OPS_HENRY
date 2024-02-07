@@ -99,24 +99,6 @@ Teniendo los 3 dataset limpios, se realizó un proceso de EDA para realizar grá
 - A partir de varias tablas, se graficaron los 15 juegos con más horas y los 15 desarrolladores con más horas en sus juegos.
 - También se graficaron los desarrolladores con más recomendaciones positivas.
 
-### Modelo de Recomendación
-
-#### `Filtro Colaborativo`
-
-- A partir de la tabla de user_reviews, se utilizaron las columnas user_id, item_id, recommend y sentiment_analysis. A partir de las dos últimas, se generó una nueva columna llamada 'rating', la cual tiene una escala entre 0 y 5. Se utilizó la técnica de Descomposición de Valor Singular (SVD) para realizar un filtro colaborativo en función de estas 3 columnas. Se utilizó GridSearch para elegir hiperparámetros
-
- óptimos; el modelo final obtuvo un RMSE de 0.85. En una escala de 0 a 5, una desviación de 0.85 es un resultado aceptable, teniendo en cuenta que el ranking podría haberse elegido de manera más óptima. El modelo se exportó como pkl para posteriormente ser consumido por la API a través de la función.
-
-Puntos a mejorar: Se podría haber elegido otro modelo como KNNBasic. Además, el proceso de generación de ratings podría haberse optimizado. También es importante considerar que un filtro basado únicamente en estas características podría estar sesgado, ya que los usuarios tienden a opinar más sobre productos que no les gustaron de forma negativa. Para abordar este problema, se podría complementar con un perfil de usuario y explorar similitudes entre ellos.
-
-#### `Filtro basado en Contenido`
-
-- Al usaro la tabla de steam_games y las columnas de géneros como dummies, NearestNeighbors, el cual se encarga de buscar los vecinos más cercanos. Puntos a mejorar para este filtro: usar otras columnas como desarrollador o especificaciones del juego. Además, no se pudo verificar adecuadamente la performance del modelo.
-
-En cuanto al filtro colaborativo, al usar la tabla de revisiones de usuarios, si este no se encontraba, no podía hacer recomendaciones. Por esto, para aquellos casos, se buscaba al usuario en la tabla de ítems y se realizaba una recomendación con el filtro basado en contenido en función del ítem en el que tuviera más horas y que no estuviera en las revisiones.
-
-En general, se obtuvieron modelos con resultados buenos; sin embargo, con mayor tiempo para realizar un análisis exahustivo de los datos, se podrían haber obtenido resultados mejores.
-
 ### Despliegue para la API
 
 Se desarrollaron las siguientes funciones, a las cuales se podrá acceder desde la API en la página Render:
@@ -127,16 +109,15 @@ Se desarrollaron las siguientes funciones, a las cuales se podrá acceder desde 
 - **`best_developer_year(año: int)`**: Retorna los tres desarrolladores con más juegos recomendados por usuarios para un año dado.
 - **`developer_rec(desarrolladora: str)`**: Retorna una lista con la cantidad de usuarios con análisis de sentimiento positivo y negativo para un desarrollador dado.
 - **`ser_recommend(user:str)`**: Esta función recomienda 5 juegos para un usuario especificado usando un filtro colaborativo.
-- **`item_recommend(item:int)`**: Esta función recomienda 5 ítems dado un ítem específico usando un filtro basado en contenido.
 
 
 ## Contacto
 
 <div style="display: flex; align-items: center;">
-  <a href="https://www.linkedin.com/in/brunozenobio/" style="margin-right: 10px;">
+  <a href="https://www.linkedin.com/in/juan-sanchez-cotes/" style="margin-right: 10px;">
     <img src="./images/in_linked_linkedin_media_social_icon_124259.png" alt="LinkedIn" width="40" height="40">
   </a>
-  <a href="mailto:brunozenobio4@gmail.com" style="margin-right: 10px;">
+  <a href="mailto:juancsanchez1992@gmail.com" style="margin-right: 10px;">
     <img src="./images/gmail_new_logo_icon_159149.png" alt="Gmail" width="40" height="40">
   </a>
 </div>
