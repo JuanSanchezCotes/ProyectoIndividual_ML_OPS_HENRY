@@ -1,7 +1,7 @@
 from funciones import *
 from fastapi import FastAPI
 import pandas as pd
-from surprise import SVD
+
 app = FastAPI()
 
 @app.get('/')
